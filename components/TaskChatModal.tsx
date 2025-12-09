@@ -82,36 +82,36 @@ const TaskChatModal: React.FC<TaskChatModalProps> = ({ isOpen, onClose, task, on
 
   return (
     <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-slate-900/60 backdrop-blur-sm p-0 sm:p-4 transition-all">
-      <div className="bg-white w-full h-[90vh] sm:h-[600px] max-w-md rounded-t-3xl sm:rounded-3xl shadow-2xl animate-in slide-in-from-bottom duration-300 overflow-hidden flex flex-col">
+      <div className="bg-white dark:bg-slate-900 w-full h-[90vh] sm:h-[600px] max-w-md rounded-t-3xl sm:rounded-3xl shadow-2xl animate-in slide-in-from-bottom duration-300 overflow-hidden flex flex-col">
         
         {/* Header */}
-        <div className="p-4 border-b border-slate-100 flex justify-between items-center bg-white z-10">
+        <div className="p-4 border-b border-slate-100 dark:border-slate-800 flex justify-between items-center bg-white dark:bg-slate-900 z-10">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-full bg-violet-100 flex items-center justify-center text-violet-600">
+            <div className="w-10 h-10 rounded-full bg-violet-100 dark:bg-violet-900/40 flex items-center justify-center text-violet-600 dark:text-violet-300">
               <Sparkles size={20} />
             </div>
             <div>
-              <h2 className="text-sm font-bold text-slate-800 line-clamp-1">{task.title}</h2>
-              <p className="text-xs text-slate-500">Assistente AI</p>
+              <h2 className="text-sm font-bold text-slate-800 dark:text-white line-clamp-1">{task.title}</h2>
+              <p className="text-xs text-slate-500 dark:text-slate-400">Assistente AI</p>
             </div>
           </div>
-          <button onClick={onClose} className="p-2 text-slate-400 hover:bg-slate-100 rounded-full transition-colors">
+          <button onClick={onClose} className="p-2 text-slate-400 dark:text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full transition-colors">
             <X size={20} />
           </button>
         </div>
         
         {/* Chat Area */}
-        <div className="flex-1 overflow-y-auto p-4 bg-slate-50 space-y-4">
+        <div className="flex-1 overflow-y-auto p-4 bg-slate-50 dark:bg-slate-950 space-y-4">
           {task.chatHistory?.map((msg) => (
             <div key={msg.id} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
               <div className={`flex max-w-[85%] gap-2 ${msg.role === 'user' ? 'flex-row-reverse' : 'flex-row'}`}>
-                <div className={`w-8 h-8 rounded-full flex-shrink-0 flex items-center justify-center ${msg.role === 'user' ? 'bg-slate-200 text-slate-600' : 'bg-violet-600 text-white'}`}>
+                <div className={`w-8 h-8 rounded-full flex-shrink-0 flex items-center justify-center ${msg.role === 'user' ? 'bg-slate-200 dark:bg-slate-700 text-slate-600 dark:text-slate-300' : 'bg-violet-600 dark:bg-violet-700 text-white'}`}>
                   {msg.role === 'user' ? <User size={14} /> : <Bot size={14} />}
                 </div>
                 <div className={`p-3 rounded-2xl text-sm leading-relaxed shadow-sm ${
                   msg.role === 'user' 
-                    ? 'bg-white text-slate-800 rounded-tr-none' 
-                    : 'bg-violet-600 text-white rounded-tl-none'
+                    ? 'bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200 rounded-tr-none' 
+                    : 'bg-violet-600 dark:bg-violet-700 text-white rounded-tl-none'
                 }`}>
                   {msg.text}
                 </div>
@@ -121,10 +121,10 @@ const TaskChatModal: React.FC<TaskChatModalProps> = ({ isOpen, onClose, task, on
           {isLoading && (
             <div className="flex justify-start">
                <div className="flex max-w-[85%] gap-2">
-                 <div className="w-8 h-8 rounded-full flex-shrink-0 flex items-center justify-center bg-violet-600 text-white">
+                 <div className="w-8 h-8 rounded-full flex-shrink-0 flex items-center justify-center bg-violet-600 dark:bg-violet-700 text-white">
                     <Bot size={14} />
                  </div>
-                 <div className="bg-violet-50 text-violet-400 p-3 rounded-2xl rounded-tl-none text-xs font-medium flex items-center gap-1">
+                 <div className="bg-violet-50 dark:bg-violet-900/20 text-violet-400 p-3 rounded-2xl rounded-tl-none text-xs font-medium flex items-center gap-1">
                     <span className="w-1.5 h-1.5 bg-violet-400 rounded-full animate-bounce [animation-delay:-0.3s]"></span>
                     <span className="w-1.5 h-1.5 bg-violet-400 rounded-full animate-bounce [animation-delay:-0.15s]"></span>
                     <span className="w-1.5 h-1.5 bg-violet-400 rounded-full animate-bounce"></span>
@@ -136,20 +136,20 @@ const TaskChatModal: React.FC<TaskChatModalProps> = ({ isOpen, onClose, task, on
         </div>
 
         {/* Input Area */}
-        <div className="p-4 bg-white border-t border-slate-100 safe-bottom">
-          <form onSubmit={handleSend} className="flex gap-2 items-center bg-slate-100 p-1.5 rounded-full border border-slate-200 focus-within:border-violet-300 focus-within:ring-2 focus-within:ring-violet-100 transition-all">
+        <div className="p-4 bg-white dark:bg-slate-900 border-t border-slate-100 dark:border-slate-800 safe-bottom">
+          <form onSubmit={handleSend} className="flex gap-2 items-center bg-slate-100 dark:bg-slate-800 p-1.5 rounded-full border border-slate-200 dark:border-slate-700 focus-within:border-violet-300 focus-within:ring-2 focus-within:ring-violet-100 dark:focus-within:ring-violet-900/30 transition-all">
             <input
               autoFocus
               type="text"
               value={input}
               onChange={(e) => setInput(e.target.value)}
               placeholder="Chiedi un consiglio o aiuto..."
-              className="flex-1 bg-transparent border-none focus:ring-0 px-4 py-2 text-sm text-slate-800 placeholder:text-slate-400"
+              className="flex-1 bg-transparent border-none focus:ring-0 px-4 py-2 text-sm text-slate-800 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500"
             />
             <button
               type="submit"
               disabled={!input.trim() || isLoading}
-              className="w-10 h-10 bg-violet-600 hover:bg-violet-700 disabled:opacity-50 disabled:hover:bg-violet-600 text-white rounded-full flex items-center justify-center transition-all shadow-sm flex-shrink-0"
+              className="w-10 h-10 bg-violet-600 hover:bg-violet-700 dark:bg-violet-600 dark:hover:bg-violet-500 disabled:opacity-50 disabled:hover:bg-violet-600 text-white rounded-full flex items-center justify-center transition-all shadow-sm flex-shrink-0"
             >
               <Send size={16} className={input.trim() ? 'ml-0.5' : ''} />
             </button>

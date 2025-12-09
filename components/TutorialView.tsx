@@ -1,58 +1,59 @@
+
 import React from 'react';
 import { Smartphone, Download, Settings, ChevronRight, Package, Chrome } from 'lucide-react';
 
 const TutorialView: React.FC<{ onBack: () => void }> = ({ onBack }) => {
   return (
-    <div className="h-full overflow-y-auto bg-slate-50 pb-20">
-      <div className="bg-white p-6 shadow-sm mb-6 sticky top-0 z-10">
-        <button onClick={onBack} className="text-indigo-600 text-sm font-medium mb-2 flex items-center">
+    <div className="h-full overflow-y-auto bg-slate-50 dark:bg-slate-950 pb-20 transition-colors">
+      <div className="bg-white dark:bg-slate-900 p-6 shadow-sm mb-6 sticky top-0 z-10 transition-colors">
+        <button onClick={onBack} className="text-indigo-600 dark:text-indigo-400 text-sm font-medium mb-2 flex items-center">
            ← Torna alla lista
         </button>
-        <h1 className="text-2xl font-bold text-slate-900">Guida Installazione</h1>
-        <p className="text-slate-500">Come trasformare questa pagina in un'App Android</p>
+        <h1 className="text-2xl font-bold text-slate-900 dark:text-white">Guida Installazione</h1>
+        <p className="text-slate-500 dark:text-slate-400">Come trasformare questa pagina in un'App Android</p>
       </div>
 
       <div className="px-4 space-y-6 max-w-2xl mx-auto">
         
         {/* Method 1: PWA */}
-        <div className="bg-white p-5 rounded-2xl shadow-sm border border-slate-200">
+        <div className="bg-white dark:bg-slate-800 p-5 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 transition-colors">
           <div className="flex items-center gap-3 mb-4">
-            <div className="w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600">
+            <div className="w-10 h-10 rounded-full bg-indigo-100 dark:bg-indigo-900/30 flex items-center justify-center text-indigo-600 dark:text-indigo-400">
               <Smartphone size={20} />
             </div>
-            <h2 className="text-lg font-bold text-slate-800">Metodo 1: Installazione Rapida (Consigliato)</h2>
+            <h2 className="text-lg font-bold text-slate-800 dark:text-white">Metodo 1: Installazione Rapida (Consigliato)</h2>
           </div>
-          <p className="text-slate-600 text-sm mb-4">
+          <p className="text-slate-600 dark:text-slate-300 text-sm mb-4">
             Il metodo più moderno non richiede un file APK. Questa è una <strong>Progressive Web App (PWA)</strong>.
           </p>
           <div className="space-y-4">
              <div className="flex gap-3">
-               <span className="flex-shrink-0 w-6 h-6 rounded-full bg-slate-100 text-slate-600 text-xs font-bold flex items-center justify-center">1</span>
-               <p className="text-sm text-slate-700">Apri questa pagina con <strong>Google Chrome</strong> sul tuo telefono Android.</p>
+               <span className="flex-shrink-0 w-6 h-6 rounded-full bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-xs font-bold flex items-center justify-center">1</span>
+               <p className="text-sm text-slate-700 dark:text-slate-300">Apri questa pagina con <strong>Google Chrome</strong> sul tuo telefono Android.</p>
              </div>
              <div className="flex gap-3">
-               <span className="flex-shrink-0 w-6 h-6 rounded-full bg-slate-100 text-slate-600 text-xs font-bold flex items-center justify-center">2</span>
-               <p className="text-sm text-slate-700">Tocca l'icona del menu (tre puntini verticali) in alto a destra.</p>
+               <span className="flex-shrink-0 w-6 h-6 rounded-full bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-xs font-bold flex items-center justify-center">2</span>
+               <p className="text-sm text-slate-700 dark:text-slate-300">Tocca l'icona del menu (tre puntini verticali) in alto a destra.</p>
              </div>
              <div className="flex gap-3">
-               <span className="flex-shrink-0 w-6 h-6 rounded-full bg-slate-100 text-slate-600 text-xs font-bold flex items-center justify-center">3</span>
-               <p className="text-sm text-slate-700">Seleziona <strong>"Aggiungi a schermata Home"</strong> o <strong>"Installa app"</strong>.</p>
+               <span className="flex-shrink-0 w-6 h-6 rounded-full bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-xs font-bold flex items-center justify-center">3</span>
+               <p className="text-sm text-slate-700 dark:text-slate-300">Seleziona <strong>"Aggiungi a schermata Home"</strong> o <strong>"Installa app"</strong>.</p>
              </div>
           </div>
-          <div className="mt-4 p-3 bg-indigo-50 rounded-lg text-xs text-indigo-800 border border-indigo-100">
+          <div className="mt-4 p-3 bg-indigo-50 dark:bg-indigo-900/20 rounded-lg text-xs text-indigo-800 dark:text-indigo-300 border border-indigo-100 dark:border-indigo-800">
             <strong>Risultato:</strong> L'app apparirà nel tuo drawer delle app e sulla home screen, funzionerà a schermo intero e offline, proprio come un'app scaricata dal Play Store.
           </div>
         </div>
 
         {/* Method 2: APK Build */}
-        <div className="bg-white p-5 rounded-2xl shadow-sm border border-slate-200 opacity-90">
+        <div className="bg-white dark:bg-slate-800 p-5 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 opacity-90 transition-colors">
           <div className="flex items-center gap-3 mb-4">
-            <div className="w-10 h-10 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600">
+            <div className="w-10 h-10 rounded-full bg-emerald-100 dark:bg-emerald-900/30 flex items-center justify-center text-emerald-600 dark:text-emerald-400">
               <Package size={20} />
             </div>
-            <h2 className="text-lg font-bold text-slate-800">Metodo 2: Generare l'APK (Per Sviluppatori)</h2>
+            <h2 className="text-lg font-bold text-slate-800 dark:text-white">Metodo 2: Generare l'APK (Per Sviluppatori)</h2>
           </div>
-          <p className="text-slate-600 text-sm mb-4">
+          <p className="text-slate-600 dark:text-slate-300 text-sm mb-4">
             Se desideri un file <code>.apk</code> fisico da distribuire, devi "impacchettare" questo codice React.
           </p>
           
