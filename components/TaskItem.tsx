@@ -22,7 +22,7 @@ const TaskItem: React.FC<TaskItemProps> = ({ task, onToggle, onDelete, onGenerat
   };
 
   return (
-    <div className={`group bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700 mb-3 overflow-hidden transition-all duration-300 ${task.completed ? 'opacity-60 grayscale-[0.5]' : 'hover:shadow-md dark:hover:shadow-slate-900/20'}`}>
+    <div className={`group bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700 mb-6 break-inside-avoid overflow-hidden transition-all duration-300 ${task.completed ? 'opacity-60 grayscale-[0.5]' : 'hover:shadow-md dark:hover:shadow-slate-900/20'}`}>
       <div className="p-4 flex items-start gap-3 relative">
         
         {/* Checkbox personalizzata */}

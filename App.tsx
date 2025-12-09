@@ -140,13 +140,22 @@ const App: React.FC = () => {
       
       {/* Header Moderno */}
       <header className="bg-white/80 dark:bg-slate-900/80 backdrop-blur-md sticky top-0 z-10 border-b border-slate-200/60 dark:border-slate-800/60 safe-top transition-all duration-300">
-        <div className="max-w-2xl mx-auto px-5 py-4">
+        <div className="max-w-7xl mx-auto px-5 py-4">
           <div className="flex justify-between items-start mb-4">
             <div>
               <p className="text-slate-500 dark:text-slate-400 text-sm font-medium mb-0.5">{getGreeting()},</p>
               <h1 className="text-2xl font-bold text-slate-900 dark:text-white tracking-tight">Le tue Attività</h1>
             </div>
-            <div className="flex gap-2">
+            <div className="flex gap-2 items-center">
+                {/* Desktop Add Button */}
+                <button
+                    onClick={() => setIsAddModalOpen(true)}
+                    className="hidden md:flex items-center gap-2 px-4 py-2.5 bg-slate-900 dark:bg-indigo-600 text-white rounded-xl hover:bg-slate-800 dark:hover:bg-indigo-500 transition-all shadow-sm active:scale-95 text-sm font-semibold mr-2"
+                >
+                    <Plus size={18} />
+                    <span>Nuova</span>
+                </button>
+
                 <button 
                   onClick={toggleTheme}
                   className="group p-2.5 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 rounded-xl hover:bg-indigo-50 dark:hover:bg-indigo-900/30 hover:text-indigo-600 dark:hover:text-indigo-400 transition-all active:scale-95"
@@ -197,7 +206,7 @@ const App: React.FC = () => {
       </header>
 
       {/* Main List */}
-      <main className="max-w-2xl mx-auto px-4 pt-4">
+      <main className="max-w-7xl mx-auto px-4 pt-6">
         {filteredTasks.length === 0 ? (
           <div className="flex flex-col items-center justify-center py-20 text-center animate-in fade-in zoom-in duration-500">
             <div className="w-24 h-24 bg-gradient-to-br from-indigo-50 to-slate-100 dark:from-slate-800 dark:to-slate-900 rounded-3xl flex items-center justify-center mb-6 shadow-inner text-indigo-300 dark:text-indigo-500">
@@ -213,7 +222,8 @@ const App: React.FC = () => {
             </p>
           </div>
         ) : (
-          <div className="space-y-1">
+          /* Masonry Layout for Tablets/Desktop using CSS Columns */
+          <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-0">
              {filteredTasks.map(task => (
                <TaskItem 
                  key={task.id} 
@@ -229,8 +239,8 @@ const App: React.FC = () => {
         )}
       </main>
 
-      {/* Floating Action Button (FAB) */}
-      <div className="fixed bottom-8 right-6 z-20">
+      {/* Floating Action Button (FAB) - Visible mostly on Mobile/Tablet */}
+      <div className="fixed bottom-8 right-6 z-20 md:hidden">
         <button
           onClick={() => setIsAddModalOpen(true)}
           className="group relative bg-slate-900 dark:bg-indigo-600 hover:bg-indigo-600 dark:hover:bg-indigo-500 text-white w-16 h-16 rounded-2xl shadow-2xl shadow-slate-400/50 dark:shadow-black/50 flex items-center justify-center transition-all duration-300 hover:scale-105 active:scale-90"

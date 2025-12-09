@@ -82,7 +82,7 @@ const TaskChatModal: React.FC<TaskChatModalProps> = ({ isOpen, onClose, task, on
 
   return (
     <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-slate-900/60 backdrop-blur-sm p-0 sm:p-4 transition-all">
-      <div className="bg-white dark:bg-slate-900 w-full h-[90vh] sm:h-[600px] max-w-md rounded-t-3xl sm:rounded-3xl shadow-2xl animate-in slide-in-from-bottom duration-300 overflow-hidden flex flex-col">
+      <div className="bg-white dark:bg-slate-900 w-full h-[90vh] sm:h-[600px] max-w-md sm:max-w-lg rounded-t-3xl sm:rounded-3xl shadow-2xl animate-in slide-in-from-bottom duration-300 overflow-hidden flex flex-col">
         
         {/* Header */}
         <div className="p-4 border-b border-slate-100 dark:border-slate-800 flex justify-between items-center bg-white dark:bg-slate-900 z-10">
